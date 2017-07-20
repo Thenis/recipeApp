@@ -1,10 +1,14 @@
+import { ShoppingListService } from '../shopping-list/shoppingList.service';
 import { Ingredient } from '../shared/ingredient.model';
-import { EventEmitter } from '@angular/core';
+import { EventEmitter, Injectable } from '@angular/core';
 
 import { Recipe } from './recipe.model';
 
+@Injectable()
 export class RecipeService {
     recipeSelected = new EventEmitter<Recipe>();
+
+    constructor(private slService: ShoppingListService) {}
 
     private recipes: Recipe[] = [
         new Recipe('Steak', 'A juicy steake', 'https://i.imgur.com/haa1dru.jpg', [
@@ -19,5 +23,9 @@ export class RecipeService {
 
     get getRecipes() {
        return this.recipes.slice();
+    }
+
+    addIngredientsToShoppingList(ingredients: Ingredient[]) {
+        this.slService.addIngredients(ingredients);
     }
 }
