@@ -1,3 +1,4 @@
+import { RecipeStartComponent } from './recipes/recipe-start/recipe-start.component';
 import { AppRoutes } from './app-routes.module';
 import { ShoppingListService } from './shopping-list/shoppingList.service';
 import { BrowserModule } from '@angular/platform-browser';
@@ -21,6 +22,7 @@ import { DropdownDirective } from './shared/dropdown.directive';
     RecipeListComponent,
     RecipeDetailComponent,
     RecipeItemComponent,
+    RecipeStartComponent,
     ShoppingListComponent,
     ShoppingEditComponent,
     DropdownDirective
