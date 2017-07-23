@@ -11,6 +11,11 @@ export class RecipeService {
 
     constructor(private slService: ShoppingListService) {}
 
+    setRecipes(recipes: Recipe[]) {
+        this.recipes = recipes;
+        this.recipesChanged.next(this.recipes.slice());
+    }
+
     private recipes: Recipe[] = [
         new Recipe('Steak', 'A juicy steake', 'https://i.imgur.com/haa1dru.jpg', [
             new Ingredient('Meat', 1),
